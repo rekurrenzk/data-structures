@@ -58,14 +58,3 @@ class ActionManager:
 
 action_manager = ActionManager()
 
-action_manager.action_process("type")
-action_manager.action_history()
-
-action_manager.action_process("type")
-action_manager.action_process("remove")
-action_manager.action_history()
-action_manager.latest_action_delete()
-
-action_manager.action_history()
-action_manager.latest_action_return()
-action_manager.action_history()
