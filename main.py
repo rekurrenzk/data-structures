@@ -57,4 +57,3 @@ class ActionManager:
 
 
 action_manager = ActionManager()
-
