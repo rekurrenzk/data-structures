@@ -3,7 +3,6 @@
 list.append(x) this is equal to a[len(a):] = [x]
 """
 
-
 # Stack (LIFO)
 
     # It supports two primary operations: push and pop

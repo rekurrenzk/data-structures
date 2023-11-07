@@ -13,3 +13,4 @@ This concept is useful for two main reason:
     For example, although buffer would delete command choices, the data can be
     vectorized to heuristic guessing. It is somewhat similar to NL algorithms, where direct usage
     of matrix is not suggested but rather weights are calculated through vectorization.
+
