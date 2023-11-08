@@ -41,14 +41,3 @@ class PrintQueue:
 
 
 print_queue = PrintQueue()
-print_queue.submit_print_job("Document1.pdf")
-print_queue.submit_print_job("Document2.pdf")
-
-print_queue.show_queue()
-
-print_queue.submit_print_job("alsonot.pdf")
-print_queue.submit_priority_job("this.pdf")
-print_queue.submit_print_job("not.pdf")
-print_queue.show_queue()
-
-print_queue.show_priority_queue()
