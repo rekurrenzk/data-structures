@@ -1,52 +1,39 @@
 from collections import deque
 
-class PrintQueue:
+class RequestAllocate:
     def __init__(self):
         self.queue = deque()
-        self.priority_queue = deque()
+        self.prior_queue = deque()
 
-    def submit_print_job(self, document):
-        self.queue.append(document)
-        print(f"Submitted print job: {document}")
-
-    def submit_priority_job(self, document):
-        self.priority_queue.append(document)
-        print(f"Submitted priority print job: {document}")
-
-    def run_print_job(self):
-        if self.priority_queue:
-            current_job = self.priority_queue.popleft()
-            print(f"Printing priority job: {current_job}")
-        elif self.queue:
-            current_job = self.queue.popleft()
-            print(f"Printing: {current_job}")
-        else:
-            print("No print jobs in the queue.")
-
-    def show_queue(self):
-        print("\nRegular Print Queue:")
-        for count, job in enumerate(self.queue, start=1):
-            print(f"{count}. {job}")
-
-    def show_priority_queue(self):
-        print("\nPriority Print Queue:")
-        for count, job in enumerate(self.priority_queue, start=1):
-            print(f"{count}. {job}")
+    def prior(self, req):
+        if self.queue:
+            moved_request = self.queue.popleft()
+            self.prior_queue.append(moved_request)
+            print(f"Moved standard request to priority: <{moved_request}>")
 
 
-print_queue = PrintQueue()
+        self.prior_queue.append(req)
+        print(f"Priority request initialized: <{req}>")
+
+    def standard_queue(self, req):
+        self.queue.append(req)
+        print(f"Request <{req}> added to the standard queue")
+
+    def queue_history(self):
+        print("Standard Queue History:")
+        for req in self.queue:
+            print(f"<{req}>")
+        print("Priority Queue History:")
+        for req in self.prior_queue:
+            print(f"<{req}>")
+
+
+request_allocate = RequestAllocate()
 
 """
-print_queue.submit_print_job("Document1.pdf")
-print_queue.submit_print_job("Document2.pdf")
-print_queue.show_queue()
+request_allocate.standard_queue("SYN")
+request_allocate.prior("HTTP")
+request_allocate.standard_queue("FTP")
 
-print_queue.submit_priority_job("Priority_Document1.pdf")
-print_queue.submit_print_job("Document3.pdf")
-print_queue.show_queue()
-print_queue.show_priority_queue()
-
-print_queue.run_print_job()
-print_queue.show_queue()
-print_queue.show_priority_queue()
+request_allocate.queue_history()
 """
